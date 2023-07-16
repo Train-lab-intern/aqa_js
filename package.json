@@ -1,0 +1,23 @@
+{
+  "name": "aqa_js",
+  "version": "1.0.0",
+  "description": "Repository for create test automation",
+  "main": "index.js",
+  "scripts": {
+    "cy:run": "npx cypress run",
+    "cy:open": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Train-lab-intern/aqa_js.git"
+  },
+  "author": "nataliasiutsova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Train-lab-intern/aqa_js/issues"
+  },
+  "homepage": "https://github.com/Train-lab-intern/aqa_js#readme",
+  "devDependencies": {
+    "cypress": "^12.17.1"
+  }
+}
