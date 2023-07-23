@@ -1,10 +1,30 @@
-const { defineConfig } = require('cypress');
+const { defineConfig } = require("cypress");
+const { Client } = require("pg");
+
+require("dotenv").config();
 
 module.exports = defineConfig({
+  viewportWidth: 1440,
+  viewportHeight: 900,
+  watchForFileChanges: false,
   e2e: {
-    baseUrl: 'https://back-test-4zwpv.ondigitalocean.app/front/pages',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      on("task", {
+        async connectDB(query) {
+          const client = new Client({
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+            host: process.env.DB_HOST,
+            database: process.env.DB_NAME,
+            port: process.env.DB_PORT,
+          });
+          await client.connect();
+          await client.connect();
+          const res = await client.query(query);
+          await client.end();
+          return res.rows;
+        },
+      });
     },
   },
 });
