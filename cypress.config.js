@@ -4,6 +4,9 @@ const { Client } = require("pg");
 require("dotenv").config();
 
 module.exports = defineConfig({
+  viewportWidth: 1440,
+  viewportHeight: 900,
+  watchForFileChanges: false,
   e2e: {
     setupNodeEvents(on, config) {
       on("task", {
