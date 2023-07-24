@@ -1,24 +1,26 @@
 const { defineConfig } = require("cypress");
-const pg = require("pg");
-
-require("dotenv").config();
+const { Pool } = require("pg");
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       on("task", {
-        connectDB({ dbconfig, query }) {
-          const client = new pg.Pool(dbconfig);
-          return client.query(query);
+        async connectDB(sql) {
+          const pool = new Pool({
+            user: process.env.DBUSER,
+            password: process.env.DBPASSWORD,
+            host: process.env.DBHOST,
+            database: process.env.DBNAME,
+            ssl: { require: true },
+            port: 5432,
+          });
+          const result = await pool.query(sql);
+          await pool.end();
+          return result;
         },
       });
-    },
-    DB: {
-      user: process.env.USER_DB,
-      password: process.env.PASSWORD_DB,
-      host: "localhost",
-      database: process.env.NAME_DB,
-      port: "5432",
     },
   },
 });
