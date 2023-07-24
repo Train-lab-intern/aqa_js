@@ -7,6 +7,11 @@ export class MainPage {
     startPathButton: () => cy.get(".Banner_btn_banner__ZteJM"),
     headerBanner: () => cy.get(".Banner_h3_banner__BaCln"),
     textBanner: () => cy.get(".Banner_text_banner__EfApu"),
+    askUsTheQuastion: () => cy.get(".OurFeatures_btn__IUbw9"),
+    contactDate: ()=> cy.get('.Footer_email__5cPNs'),
+    linkedIn: () => cy.get('[href="https://www.linkedin.com/company/train-lab-interns/mycompany/"] > img'),
+    personalDate: () =>
+      cy.get(":nth-child(3) > .Footer_right_block__u-6oV > :nth-child(1)"),
     carousel: () =>
       cy.get(".Block_wrapper__cn3TA > .react-multi-carousel-list"),
     carouselRightButton: () =>
@@ -52,5 +57,5 @@ export class MainPage {
     persDataLink: () =>
       cy.get(":nth-child(3) > .Footer_right_block__u-6oV > :nth-child(1)"),
     ownerEmail: () => cy.get(".Footer_email__5cPNs"),
-  };
+  }
 }

@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Train-lab-intern/aqa_js#readme",
   "devDependencies": {
-    "cypress": "^12.17.1",
+    "cypress": "^12.17.2",
     "dotenv": "^16.3.1",
     "pg": "^8.11.1"
   }
