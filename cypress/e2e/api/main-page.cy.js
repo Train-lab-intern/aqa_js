@@ -1,5 +1,5 @@
 describe("Backend main page", () => {
-  it("Check that ST-1.1 text from database", () => {
+  it("Check that ST-1.1 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"
@@ -12,7 +12,7 @@ describe("Backend main page", () => {
     });
   });
 
-  it("Check that ST-1.2 text from database", () => {
+  it("Check that ST-1.2 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"
@@ -25,7 +25,7 @@ describe("Backend main page", () => {
     });
   });
 
-  it("Check that ST-1.3 text from database", () => {
+  it("Check that ST-1.3 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"
@@ -38,7 +38,7 @@ describe("Backend main page", () => {
     });
   });
 
-  it("Check that ST-1.4 text from database", () => {
+  it("Check that ST-1.4 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"
@@ -51,7 +51,7 @@ describe("Backend main page", () => {
     });
   });
 
-  it("Check that ST-1.5 text from database", () => {
+  it("Check that ST-1.5 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"
@@ -64,7 +64,7 @@ describe("Backend main page", () => {
     });
   });
 
-  it("Check that ST-1.6 text from database", () => {
+  it("Check that ST-1.6 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"
@@ -77,7 +77,7 @@ describe("Backend main page", () => {
     });
   });
 
-  it("Check that ST-1.7 text from database", () => {
+  it("Check that ST-1.7 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"
@@ -90,7 +90,7 @@ describe("Backend main page", () => {
     });
   });
 
-  it("Check that ST-1.8 text from database", () => {
+  it("Check that ST-1.8 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"
@@ -103,7 +103,7 @@ describe("Backend main page", () => {
     });
   });
 
-  it("Check that ST-1.9 text from database", () => {
+  it("Check that ST-1.9 text in main page from database", () => {
     cy.request(
       "GET",
       "https://back-test-4zwpv.ondigitalocean.app/front/pages/1"

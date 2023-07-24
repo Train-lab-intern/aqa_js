@@ -7,7 +7,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       on("task", {
-        async connectDB(sql) {
+        async connectDB(query) {
           const pool = new Pool({
             user: process.env.DBUSER,
             password: process.env.DBPASSWORD,
@@ -16,7 +16,7 @@ module.exports = defineConfig({
             ssl: { require: true },
             port: 5432,
           });
-          const result = await pool.query(sql);
+          const result = await pool.query(query);
           await pool.end();
           return result;
         },
