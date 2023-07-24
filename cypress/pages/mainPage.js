@@ -8,8 +8,12 @@ export class MainPage {
     headerBanner: () => cy.get(".Banner_h3_banner__BaCln"),
     textBanner: () => cy.get(".Banner_text_banner__EfApu"),
     askUsTheQuastion: () => cy.get(".OurFeatures_btn__IUbw9"),
-    contactDate: ()=> cy.get('.Footer_email__5cPNs'),
-    linkedIn: () => cy.get('[href="https://www.linkedin.com/company/train-lab-interns/mycompany/"] > img'),
+    contactDate: () => cy.get(".Footer_email__5cPNs"),
+    linkedIn: () =>
+      cy.get(
+        '[href="https://www.linkedin.com/company/train-lab-interns/mycompany/"] > img'
+      ),
+    gitLink: () => cy.get("body"),
     personalDate: () =>
       cy.get(":nth-child(3) > .Footer_right_block__u-6oV > :nth-child(1)"),
     carousel: () =>

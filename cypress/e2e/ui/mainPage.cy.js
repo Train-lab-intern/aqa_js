@@ -48,6 +48,10 @@ describe("Main Page", () => {
     mainPage.elements.linkedIn().should("exist")
   })
 
+  //GitLink
+  it("Check Git", () => {
+    mainPage.elements.gitLink().should("exist")
+  })
   // it("Check carousel", () => {
   //   mainPage.elements.carousel().should("exist")
   //   mainPage.elements.element1Carousel().should("be.visible")
