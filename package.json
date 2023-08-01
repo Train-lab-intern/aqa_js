@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Train-lab-intern/aqa_js#readme",
   "devDependencies": {
     "cypress": "^12.17.2",
+    "cypress-mochawesome-reporter": "^3.5.1",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
     "pg": "^8.11.1"
