@@ -4,7 +4,7 @@
 	"description": "Repository for create test automation",
 	"main": "index.js",
 	"scripts": {
-		"cy:run": "npx cypress run --headless",
+		"cy:run": "npx cypress run --browser chrome --headless",
 		"cy:open": "npx cypress open"
 	},
 	"repository": {

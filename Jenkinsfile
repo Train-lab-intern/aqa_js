@@ -20,7 +20,7 @@ pipeline{
      
     stage('Test') {
       steps {
-         sh 'npm run cy:run'
+         sh 'ELECTRON_RUN_AS_NODE=1 npm run cy:run'
       }
     }
         
