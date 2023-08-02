@@ -5,8 +5,6 @@ pipeline{
   tools {nodejs "node"}
 
   stages{
-
- // stages {
         
  //    stage('Cloning Git') {
  //      steps {
@@ -39,4 +37,4 @@ pipeline{
         }
      }
 }
-}
+
