@@ -1,27 +1,28 @@
 {
-  "name": "aqa_js",
-  "version": "1.0.0",
-  "description": "Repository for create test automation",
-  "main": "index.js",
-  "scripts": {
-    "cy:run": "npx cypress run",
-    "cy:open": "npx cypress open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Train-lab-intern/aqa_js.git"
-  },
-  "author": "nataliasiutsova",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Train-lab-intern/aqa_js/issues"
-  },
-  "homepage": "https://github.com/Train-lab-intern/aqa_js#readme",
-  "devDependencies": {
-    "cypress": "^12.17.2",
-    "cypress-mochawesome-reporter": "^3.5.1",
-    "dotenv": "^16.3.1",
-    "fs": "^0.0.1-security",
-    "pg": "^8.11.1"
-  }
+	"name": "aqa_js",
+	"version": "1.0.0",
+	"description": "Repository for create test automation",
+	"main": "index.js",
+	"scripts": {
+		"cy:run": "npx cypress run --headless",
+		"cy:open": "npx cypress open"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Train-lab-intern/aqa_js.git"
+	},
+	"author": "nataliasiutsova",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Train-lab-intern/aqa_js/issues"
+	},
+	"homepage": "https://github.com/Train-lab-intern/aqa_js#readme",
+	"devDependencies": {
+		"@cypress/xvfb": "^1.2.4",
+		"cypress": "^12.17.2",
+		"cypress-mochawesome-reporter": "^3.5.1",
+		"dotenv": "^16.3.1",
+		"fs": "^0.0.1-security",
+		"pg": "^8.11.1"
+	}
 }
