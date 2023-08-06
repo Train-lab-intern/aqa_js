@@ -3,16 +3,6 @@ const { Pool } = require('pg');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const Xvfb = require('xvfb');
-const options = {}; // optional
-const xvfb = new Xvfb(options);
-xvfb.start(function (err, xvfbProcess) {
-	// code that uses the virtual frame buffer here
-	xvfb.stop(function (err) {
-		// the Xvfb is stopped
-	});
-});
-
 module.exports = defineConfig({
 	e2e: {
 		setupNodeEvents(on, config) {
