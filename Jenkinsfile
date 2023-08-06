@@ -14,14 +14,13 @@ pipeline{
         
     stage('Install dependencies') {
       steps {
-        sh'apt-get install xvfb'
         sh 'npm install'
       }
     }
      
     stage('Test') {
       steps {
-         sh 'ELECTRON_RUN_AS_NODE=1 npm run cy:run'
+         sh 'npm run cy:run'
       }
     }
         
