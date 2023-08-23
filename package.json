@@ -4,7 +4,8 @@
 	"description": "Repository for create test automation",
 	"main": "index.js",
 	"scripts": {
-		"cy:run:mainpage": "npx cypress run --browser chrome "
+		"cy:run:api": "npx cypress run --browser chrome --spec 'cypress/e2e/api/main-page.cy.js'  ",
+		"cy:run:ui": "npx cypress run --browser electron --spec 'cypress/e2e/ui/mainPage.cy.js'"
 	},
 	"repository": {
 		"type": "git",
