@@ -1,6 +1,6 @@
 describe('Backend main page', () => {
 	it('Check that ST-1.1 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.1]);
 				cy.task(
@@ -14,7 +14,7 @@ describe('Backend main page', () => {
 	});
 
 	it('Check that ST-1.2 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.2]);
 				cy.task(
@@ -28,7 +28,7 @@ describe('Backend main page', () => {
 	});
 
 	it('Check that ST-1.3 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.3]);
 				cy.task(
@@ -42,7 +42,7 @@ describe('Backend main page', () => {
 	});
 
 	it('Check that ST-1.4 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.4]);
 				cy.task(
@@ -56,7 +56,7 @@ describe('Backend main page', () => {
 	});
 
 	it('Check that ST-1.5 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.5]);
 				cy.task(
@@ -70,7 +70,7 @@ describe('Backend main page', () => {
 	});
 
 	it('Check that ST-1.6 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.6]);
 				cy.task(
@@ -84,7 +84,7 @@ describe('Backend main page', () => {
 	});
 
 	it('Check that ST-1.7 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.7]);
 				cy.task(
@@ -98,7 +98,7 @@ describe('Backend main page', () => {
 	});
 
 	it('Check that ST-1.8 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.8]);
 				cy.task(
@@ -112,7 +112,7 @@ describe('Backend main page', () => {
 	});
 
 	it('Check that ST-1.9 text in main page from database', () => {
-		cy.request('GET', 'https://test.app.it-roast.com//front/pages/1').then(
+		cy.request('GET', 'https://test.app.it-roast.com/front/pages/1').then(
 			(res) => {
 				cy.log(res.body[1.9]);
 				cy.task(
