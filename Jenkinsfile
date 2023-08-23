@@ -5,13 +5,7 @@ pipeline{
   tools {nodejs "node"}
 
   stages{
-        
- //    stage('Cloning Git') {
- //      steps {
- //        git 'https://github.com/gustavoapolinario/node-todo-frontend'
- //      }
- //    }
-        
+             
     stage('Install dependencies') {
       steps {
         sh 'npm install'
@@ -20,7 +14,8 @@ pipeline{
      
     stage('Test') {
       steps {
-         sh 'npm run cy:run'
+         sh 'npm run cy:run:api'
+         sh 'npm run cy:run:ui'
       }
     }
         

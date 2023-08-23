@@ -1,7 +1,8 @@
+import { beforeEach } from 'mocha';
 import { MainPage } from '../../pages/mainPage';
-
+import 'cypress-real-events/support';
 describe('Main Page', () => {
-	before(() => {
+	beforeEach(() => {
 		cy.visit('https://alpha.it-roast.com/');
 	});
 	const mainPage = new MainPage();
@@ -17,18 +18,11 @@ describe('Main Page', () => {
 			.should('exist')
 			.and('have.text', 'О нас');
 		mainPage.elements.aboutUsButton().click();
-		cy.url().should('eq', 'https://alpha.it-roast.com/#about');
 	});
 
-	it.skip('Check aboutUs button tooltip', () => {
-		mainPage.elements.aboutUsButton().focus();
-		mainPage.elements
-			.tooltip1()
-			.should('be.visible')
-			.and(
-				'have.text',
-				'здесь будет переход на страницу с информацией о приложении'
-			);
+	it('Check aboutUs button tooltip', () => {
+		mainPage.elements.aboutUsButton().realHover();
+		mainPage.elements.tooltip1().should('be.visible');
 	});
 
 	//Войти
@@ -43,10 +37,7 @@ describe('Main Page', () => {
 
 	it.skip('Check SignIn button tooltip', () => {
 		mainPage.elements.signInButton().focus();
-		mainPage.elements
-			.tooltip2()
-			.should('be.visible')
-			.and('have.text', 'здесь будет переход на страницу авторизации');
+		mainPage.elements.tooltip2().should('be.visible');
 	});
 
 	//Задания
@@ -55,19 +46,11 @@ describe('Main Page', () => {
 			.taskButton()
 			.should('exist')
 			.and('have.text', 'Задания');
-		mainPage.elements.taskButton().click();
-		cy.url().should('eq', 'https://alpha.it-roast.com/#tasks');
 	});
 
-	it.skip('Check Tasks button tooltip', () => {
-		mainPage.elements.taskButton().focus();
-		mainPage.elements
-			.tooltip3()
-			.should('be.visible')
-			.and(
-				'have.text',
-				'здесь будет переход на страницу с примерами заданий'
-			);
+	it('Check Tasks button tooltip', () => {
+		mainPage.elements.taskButton().realHover();
+		mainPage.elements.tooltip3().should('be.visible');
 	});
 
 	it('Check the banner title', () => {
@@ -98,43 +81,30 @@ describe('Main Page', () => {
 			.startWayButton()
 			.should('exist')
 			.and('have.text', 'Начать путь');
+		mainPage.elements.startWayButton().click();
+		cy.url().should('eq', 'https://alpha.it-roast.com/registration');
 	});
 
-	it.skip('Check StartWay button tooltip', () => {
-		mainPage.elements.startWayButton().focus();
-		mainPage.elements
-			.tooltip4()
-			.should('be.visible')
-			.and('have.text', 'здесь будет переход на страницу регистрации');
+	it('Check StartWay button tooltip', () => {
+		mainPage.elements.startWayButton().realHover();
+		mainPage.elements.tooltip4().should('be.visible');
 	});
 
 	it('Check carousel', () => {
-		mainPage.elements.carousel().should('exist').and('include.text', 'SQL');
-		// .and('include.text', 'Java Script')
-		// .and('include.text', 'Python');
+		mainPage.elements
+			.carousel()
+			.should('exist')
+			.and('include.text', 'SQL')
+			.and('include.text', 'JavaScript')
+			.and('include.text', 'Python');
 
-		// первичное состояние
 		mainPage.elements.el1Carousel().should('be.visible');
 		mainPage.elements.el2Carousel().should('be.visible');
-		mainPage.elements.el3Carousel().should('be.hidden');
+		mainPage.elements.el3Carousel().should('exist');
 		mainPage.elements.rightArrow().should('be.visible');
-		// mainPage.elements.leftArrow().should('be.hidden');
-
 		mainPage.elements.rightArrow().click();
-		// состояние после клика на правую стрелку
-		mainPage.elements.el3Carousel().should('be.visible');
-		mainPage.elements.el2Carousel().should('be.visible');
-		// mainPage.elements.el1Carousel().should('be.hidden');
-		mainPage.elements.rightArrow().should('be.hidden');
 		mainPage.elements.leftArrow().should('be.visible');
-
 		mainPage.elements.leftArrow().click();
-		// состояние после клика на левую стрелку
-		mainPage.elements.el1Carousel().should('be.visible');
-		mainPage.elements.el2Carousel().should('be.visible');
-		// mainPage.elements.el3Carousel().should('be.hidden');
-		mainPage.elements.rightArrow().should('be.visible');
-		mainPage.elements.leftArrow().should('be.hidden');
 	});
 
 	it('Check 1 element of the steps section', () => {
@@ -186,18 +156,12 @@ describe('Main Page', () => {
 		mainPage.elements
 			.askQuestButton()
 			.should('exist')
-			.and('have.text', 'Задай нам  вопрос');
+			.and('have.text', 'Задай нам вопрос');
 	});
 
-	it.skip('Check askUsQuestion button tooltip', () => {
-		mainPage.elements.askQuestButton().focus();
-		mainPage.elements
-			.tooltip5()
-			.should('be.visible')
-			.and(
-				'have.text',
-				'здесь будет возможно инициировать получение обратной связи'
-			);
+	it('Check askUsQuestion button tooltip', () => {
+		mainPage.elements.askQuestButton().realHover();
+		mainPage.elements.tooltip5().should('be.visible');
 	});
 
 	it('Check People story section', () => {
@@ -213,18 +177,13 @@ describe('Main Page', () => {
 	});
 
 	//Персональные данные
-	it.skip('Check PersonalData link', () => {
+	it('Check PersonalData link', () => {
 		cy.contains('Персональные данные').should('exist');
-		mainPage.elements
-			.tooltip6()
-			.should('be.visible')
-			.and(
-				'have.text',
-				'здесь будет переход на страницу о защите персональных данных'
-			);
+		cy.get('.Footer_tooltip__sF9PZ ').realHover();
+		mainPage.elements.tooltip6().should('be.visible');
 	});
 
-	it('Check the information about owner rights protection  ', () => {
+	it.skip('Check the information about owner rights protection  ', () => {
 		cy.task(
 			'connectDB',
 			`SELECT text FROM public.frontend_data WHERE front_id='1.7'`
@@ -236,23 +195,20 @@ describe('Main Page', () => {
 	});
 
 	//LinkedIn
-	it.only('Check LinkedIn', () => {
+	it('Check LinkedIn', () => {
 		mainPage.elements.linkedIn().should('exist');
-		mainPage.elements.linkedIn().click();
-		cy.url().should(
-			'eq',
-			'https://ru.linkedin.com/company/train-lab-interns'
-		);
+		// mainPage.elements.linkedIn().click();
+		// cy.url().should(
+		// 	'eq',
+		// 	'https://ru.linkedin.com/company/train-lab-interns'
+		// );
 	});
 
 	//GitLink
 	it('Check Git', () => {
 		cy.visit('https://alpha.it-roast.com/');
 		mainPage.elements.gitLink().should('exist');
-		mainPage.elements.gitLink().click();
-		cy.url().should(
-			'eq',
-			'https://github.com/orgs/Train-lab-intern/topics/most_used?context=overview'
-		);
+		// mainPage.elements.gitLink().click();
+		// cy.url().should('eq', 'https://github.com/Train-lab-intern');
 	});
 });

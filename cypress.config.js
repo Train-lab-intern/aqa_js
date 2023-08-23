@@ -4,7 +4,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = defineConfig({
+	reporter: 'cypress-mochawesome-reporter',
 	e2e: {
+		watchForFileChanges: false,
 		setupNodeEvents(on, config) {
 			on('task', {
 				async connectDB(sql) {
