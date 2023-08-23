@@ -1,5 +1,5 @@
 const { defineConfig } = require('cypress');
-const { Pool } = require('pg');
+const { Client } = require('pg');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -8,7 +8,7 @@ module.exports = defineConfig({
 		setupNodeEvents(on, config) {
 			on('task', {
 				async connectDB(sql) {
-					const pool = new Pool({
+					const client = new Client({
 						user: process.env.DBUSER,
 						password: process.env.DBPASSWORD,
 						host: process.env.DBHOST,
@@ -16,8 +16,9 @@ module.exports = defineConfig({
 						ssl: { require: true },
 						port: 5432,
 					});
-					const result = await pool.query(sql);
-					await pool.end();
+					await client.connect();
+					const result = await client.query(sql);
+					await client.end();
 					return result;
 				},
 			});
