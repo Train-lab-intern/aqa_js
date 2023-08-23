@@ -14,8 +14,8 @@ pipeline{
      
     stage('Test') {
       steps {
-         sh 'npm run cy:run:api'
-         sh 'npm run cy:run:ui'
+         sh 'npm run cy:run:mainpage'
+        
       }
     }
         
