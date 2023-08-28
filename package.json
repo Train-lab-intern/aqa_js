@@ -4,6 +4,8 @@
 	"description": "Repository for create test automation",
 	"main": "index.js",
 	"scripts": {
+		"cy:open": "npx cypress open",
+		"cy:run:reg": "npx cypress run --browser chrome --spec 'cypress/e2e/ui/registration.cy.js",
 		"cy:run:api": "npx cypress run --browser chrome --spec 'cypress/e2e/api/main-page.cy.js'  ",
 		"cy:run:ui": "npx cypress run --browser electron --spec 'cypress/e2e/ui/mainPage.cy.js'"
 	},
@@ -19,6 +21,7 @@
 	"homepage": "https://github.com/Train-lab-intern/aqa_js#readme",
 	"devDependencies": {
 		"@cypress/xvfb": "^1.2.4",
+		"@faker-js/faker": "^8.0.2",
 		"cypress": "^12.17.2",
 		"cypress-mochawesome-reporter": "^3.5.1",
 		"cypress-real-events": "^1.10.0",
