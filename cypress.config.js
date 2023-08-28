@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = defineConfig({
+	watchForFileChanges: false,
 	e2e: {
 		setupNodeEvents(on, config) {
 			on('task', {

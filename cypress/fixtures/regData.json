@@ -1,0 +1,21 @@
+{
+	"invalidEmail": [
+		"@gmail.com",
+		"test-email2023gmail.com",
+		"test-email2023@",
+		"test-email2023@gmail",
+		"test-email2023@gmailcom"
+	],
+
+	"invalidPassword": [
+		" ",
+		"12345678",
+		"qwertyui",
+		"QWERTYUI",
+		"qwert1Q",
+		"qwerty12",
+		"qwertyQW",
+		"QWERTY12",
+		"пароль1П"
+	]
+}
