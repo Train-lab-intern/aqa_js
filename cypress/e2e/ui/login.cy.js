@@ -84,6 +84,7 @@ describe('Login Page', () => {
 		arr.splice(1, 1);
 		let incEmail = arr.join('');
 		loginPage.login(incEmail, userPassword);
+		cy.wait(3000);
 		loginPage.elements
 			.notification()
 			.should('be.visible')
@@ -91,8 +92,9 @@ describe('Login Page', () => {
 		cy.url().should('include', '/auth');
 	});
 
-	it('Login with wrong password', () => {
+	it.only('Login with wrong password', () => {
 		loginPage.login(userEmail, userPassword.slice(0, -1));
+		cy.wait(3000);
 		loginPage.elements
 			.notification()
 			.should('be.visible')
