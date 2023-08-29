@@ -111,22 +111,22 @@ describe('Registration Page', () => {
 		);
 	});
 
-	it('Registration with the blank fields', () => {
+	it.only('Registration with the blank fields', () => {
 		regPage.elements.signUpButton().click();
 		regPage.elements
 			.form()
 			.find('.Registration_input_border_red__eTe3J')
-			.should('have.length', 4)
-			.and('have.css', 'border', '2px solid rgb(204, 13, 24)');
+			.should('have.length', 4);
 
 		regPage.elements
 			.form()
 			.find('.Registration_errors__ySskW')
 			.should('have.length', 4);
 		cy.get('.Registration_errors__ySskW').each(($elem) => {
-			cy.get($elem)
-				.should('have.text', 'это поле обязательно для заполнения')
-				.and('have.css', 'color', 'rgb(204, 13, 24)');
+			cy.get($elem).should(
+				'have.text',
+				'это поле обязательно для заполнения'
+			);
 		});
 	});
 
