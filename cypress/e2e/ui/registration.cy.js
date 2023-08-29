@@ -111,7 +111,7 @@ describe('Registration Page', () => {
 		);
 	});
 
-	it.only('Registration with the blank fields', () => {
+	it('Registration with the blank fields', () => {
 		regPage.elements.signUpButton().click();
 		regPage.elements
 			.form()
