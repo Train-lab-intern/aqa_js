@@ -94,7 +94,7 @@ describe('Login Page', () => {
 
 	it('Login with wrong password', () => {
 		loginPage.login(userEmail, userPassword.slice(0, -1));
-		cy.wait(3000);
+		cy.wait(5000);
 		loginPage.elements
 			.notification()
 			.should('be.visible')
