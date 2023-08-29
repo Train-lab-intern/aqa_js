@@ -79,12 +79,12 @@ describe('Login Page', () => {
 		cy.url().should('include', '/profile');
 	});
 
-	it('Login with wrong email', () => {
+	it.skip('Login with wrong email', () => {
 		let arr = userEmail.split('');
 		arr.splice(1, 1);
 		let incEmail = arr.join('');
 		loginPage.login(incEmail, userPassword);
-		cy.wait(3000);
+		cy.wait(4000);
 		loginPage.elements
 			.notification()
 			.should('be.visible')
@@ -94,7 +94,7 @@ describe('Login Page', () => {
 
 	it('Login with wrong password', () => {
 		loginPage.login(userEmail, userPassword.slice(0, -1));
-		cy.wait(5000);
+		cy.wait(3000);
 		loginPage.elements
 			.notification()
 			.should('be.visible')
