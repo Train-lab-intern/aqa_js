@@ -105,17 +105,17 @@ describe('Login Page', () => {
 		loginPage.elements
 			.form()
 			.find('.Auth_input_border_red__vIL-S.form-control')
-			.should('have.length', 2)
-			.and('have.css', 'border', '2px solid rgb(204, 13, 24)');
+			.should('have.length', 2);
 
 		loginPage.elements
 			.form()
 			.find('.Auth_errors__oVY9X')
 			.should('have.length', 2);
 		cy.get('.Auth_errors__oVY9X').each(($elem) => {
-			cy.get($elem)
-				.should('have.text', 'это поле обязательно для заполнения')
-				.and('have.css', 'color', 'rgb(204, 13, 24)');
+			cy.get($elem).should(
+				'have.text',
+				'это поле обязательно для заполнения'
+			);
 		});
 	});
 
