@@ -20,13 +20,13 @@ pipeline{
 
      stage('Test registration page') {
       steps {
-         sh 'npm run cy:run:reg:remote:ui'  
+         sh 'npm run cy:run:reg:ui'  
       }
     }
 
     stage('Test login page') {
       steps {
-         sh 'npm run cy:run:login:remote:ui'  
+         sh 'npm run cy:run:login:ui'  
       }
     }
       
