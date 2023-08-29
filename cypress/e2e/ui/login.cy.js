@@ -92,7 +92,7 @@ describe('Login Page', () => {
 		cy.url().should('include', '/auth');
 	});
 
-	it.only('Login with wrong password', () => {
+	it('Login with wrong password', () => {
 		loginPage.login(userEmail, userPassword.slice(0, -1));
 		cy.wait(3000);
 		loginPage.elements
