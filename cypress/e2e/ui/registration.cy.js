@@ -7,12 +7,12 @@ describe('Registration Page', () => {
 		cy.visit('https://alpha.it-roast.com/registration');
 	});
 
-	after('Delete a created user from DB', () => {
-		cy.task(
-			'connectDB',
-			`DELETE FROM public.users WHERE email='${userEmail}'`
-		);
-	});
+	// after('Delete a created user from DB', () => {
+	// 	cy.task(
+	// 		'connectDB',
+	// 		`DELETE FROM public.users WHERE email='${userEmail}'`
+	// 	);
+	// });
 
 	const regPage = new registrationPage();
 
@@ -62,21 +62,22 @@ describe('Registration Page', () => {
 	it('Positive registration', () => {
 		regPage.registration(userEmail, userName, userPassword);
 		cy.wait(3000);
-		cy.on('window:alert', (str) => {
-			expect(str).to.contains(
+		regPage.elements
+			.notification()
+			.should('be.visible')
+			.and(
+				'have.text',
 				'На адрес Вашей электронной почты было отправлено письмо. Для завершения регистрации перейдите по указанной в письме ссылке.'
 			);
-		});
-		cy.on('window:confirm', () => true);
 	});
 
 	it('Re-registtration: user with this email is already exist', () => {
 		regPage.registration(userEmail, userName, userPassword);
 		cy.wait(3000);
-		cy.on('window:alert', (str) => {
-			expect(str).to.contains('registration error...');
-		});
-		cy.on('window:confirm', () => true);
+		regPage.elements
+			.notification()
+			.should('be.visible')
+			.and('have.text', 'User with this username is already exists.');
 	});
 
 	it('Password does not match', () => {

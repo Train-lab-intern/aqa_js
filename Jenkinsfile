@@ -12,13 +12,24 @@ pipeline{
       }
     }
      
-    stage('Test') {
+    stage('Test main page') {
       steps {
-         sh 'npm run cy:run:api'
-        
+         sh 'npm run cy:run:main-page:remote:api && npm run cy:run:main-page:remote:ui'  
       }
     }
-        
+
+     stage('Test registration page') {
+      steps {
+         sh 'npm run cy:run:reg:remote:ui'  
+      }
+    }
+
+    stage('Test login page') {
+      steps {
+         sh 'npm run cy:run:login:remote:ui'  
+      }
+    }
+      
   }
      post{
         success{
