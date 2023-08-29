@@ -12,6 +12,7 @@ export class registrationPage {
 		signUpButton: () => cy.get('button.Registration_input__fHjpg'),
 		signInLink: () => cy.get('a[href="/auth"]'),
 		askQwLink: () => cy.get('a[href="#"]'),
+		notification: () => cy.get('.Notifications_wrapperNotification__zdDWZ'),
 		errorMess: () => cy.get('.Registration_errors__ySskW'),
 	};
 	registration(userEmail, userName, userPassword) {

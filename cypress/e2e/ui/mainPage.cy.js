@@ -1,4 +1,3 @@
-import { beforeEach } from 'mocha';
 import { MainPage } from '../../pages/mainPage';
 import 'cypress-real-events/support';
 describe('Main Page', () => {

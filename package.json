@@ -5,9 +5,14 @@
 	"main": "index.js",
 	"scripts": {
 		"cy:open": "npx cypress open",
-		"cy:run:reg": "npx cypress run --browser chrome --spec 'cypress/e2e/ui/registration.cy.js",
-		"cy:run:api": "npx cypress run --browser chrome --spec 'cypress/e2e/api/main-page.cy.js'  ",
-		"cy:run:ui": "npx cypress run --browser electron --spec 'cypress/e2e/ui/mainPage.cy.js'"
+		"cy:run:local:reg:ui": "npx cypress run --browser chrome --config-file cypress.config.js --spec 'cypress/e2e/ui/registration.cy.js",
+		"cy:run:remote:reg:ui": "npx cypress run --browser chrome --config-file cypressRemote.config.js --spec 'cypress/e2e/ui/registration.cy.js",
+		"cy:run:local:login:ui": "npx cypress run --config-file cypress.config.js --spec 'cypress/e2e/ui/login.cy.js",
+		"cy:run:remote:login:ui": "npx cypress run --config-file cypressRemote.config.js --spec 'cypress/e2e/ui/login.cy.js",
+		"cy:run:main-page:local:api": "npx cypress run --browser chrome --config-file cypress.config.js --spec 'cypress/e2e/api/main-page.cy.js'  ",
+		"cy:run:main-page:local:ui": "npx cypress run --browser electron --config-file cypress.config.js --spec 'cypress/e2e/ui/mainPage.cy.js'",
+		"cy:run:main-page:remote:api": "npx cypress run --browser chrome --config-file cypressRemote.config.js --spec 'cypress/e2e/api/main-page.cy.js'",
+		"cy:run:main-page:remote:ui": "npx cypress run --browser electron --config-file cypressRemote.config.js --spec 'cypress/e2e/ui/mainPage.cy.js'"
 	},
 	"repository": {
 		"type": "git",
