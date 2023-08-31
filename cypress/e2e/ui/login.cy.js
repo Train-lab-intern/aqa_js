@@ -16,9 +16,9 @@ describe('Login Page', () => {
 			method: 'POST',
 			url: 'https://test.app.it-roast.com/api/v1/users/register',
 			body: {
-				email: `${userEmail}`,
-				password: `${userPassword}`,
-				username: `${userName}`,
+				email: userEmail,
+				password: userPassword,
+				username: userName,
 			},
 		}).then((res) => {
 			expect(res.status).to.eq(200);

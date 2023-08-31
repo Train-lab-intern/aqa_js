@@ -12,13 +12,13 @@ pipeline{
       }
     }
      
-    // stage('Test main page') {
-    //   steps {
-    //      sh 'npm run cy:run:main-page:remote:api && npm run cy:run:main-page:remote:ui'  
-    //   }
-    // }
+    stage('Test main page') {
+      steps {
+         sh 'npm run cy:run:main-page:remote:api && npm run cy:run:main-page:remote:ui'  
+      }
+    }
 
-     stage('Test registration page') {
+       stage('Test registration page') {
       steps {
          sh 'npm run cy:run:reg:ui'  
       }
@@ -26,21 +26,11 @@ pipeline{
 
     stage('Test login page') {
       steps {
-         sh 'npm run cy:run:login:ui'  
+         sh 'npm run cy:run:login:api'
+
       }
     }
       
   }
-     post{
-        success{
-           publishHTML ([allowMissing: false,
-           alwaysLinkToLastBuild: false,
-           keepAll: true,
-           reportDir: 'cypress/reports/html',
-           reportFiles: 'index.html',
-           reportName: 'HTML Report',
-           ])
-        }
-     }
 }
 
