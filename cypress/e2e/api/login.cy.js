@@ -31,7 +31,7 @@ describe('Login Page', () => {
 		});
 	});
 
-	it('Positive login', () => {
+	it('Positive login', { tags: ['@smoke', '@regression'] }, () => {
 		cy.request({
 			method: 'POST',
 			url: 'https://test.app.it-roast.com/api/v1/auth',
@@ -52,7 +52,7 @@ describe('Login Page', () => {
 		});
 	});
 
-	it('To get user by id', () => {
+	it('To get user by id', { tags: ['@smoke', '@regression'] }, () => {
 		cy.request({
 			method: 'GET',
 			url: 'https://test.app.it-roast.com/api/v1/users/' + id,
@@ -66,7 +66,7 @@ describe('Login Page', () => {
 		});
 	});
 
-	it('Login with wrong email', () => {
+	it('Login with wrong email', { tags: '@regression' }, () => {
 		let arr = userEmail.split('');
 		arr.splice(1, 1);
 		let incEmail = arr.join('');
@@ -87,10 +87,7 @@ describe('Login Page', () => {
 		});
 	});
 
-	it('Login with wrong password', () => {
-		let arr = userEmail.split('');
-		arr.splice(1, 1);
-		let incEmail = arr.join('');
+	it('Login with wrong password', { tags: '@regression' }, () => {
 		cy.request({
 			method: 'POST',
 			url: 'https://test.app.it-roast.com/api/v1/auth',
@@ -102,6 +99,24 @@ describe('Login Page', () => {
 		}).then((res) => {
 			expect(res.status).to.eq(400);
 			expect(res.body).to.have.property('message', 'Bad credentials');
+		});
+	});
+
+	it('Login without credentials', { tags: '@regression' }, () => {
+		cy.request({
+			method: 'POST',
+			url: 'https://test.app.it-roast.com/api/v1/auth',
+			body: {
+				userEmail: null,
+				userPassword: null,
+			},
+			failOnStatusCode: false,
+		}).then((res) => {
+			expect(res.status).to.eq(400);
+			expect(res.body).to.have.property(
+				'message',
+				'User not found with email: null'
+			);
 		});
 	});
 });

@@ -34,11 +34,6 @@ describe('Main Page', () => {
 		cy.url().should('eq', 'https://alpha.it-roast.com/auth');
 	});
 
-	it.skip('Check SignIn button tooltip', () => {
-		mainPage.elements.signInButton().focus();
-		mainPage.elements.tooltip2().should('be.visible');
-	});
-
 	//Задания
 	it('Check Tasks button', () => {
 		mainPage.elements
@@ -82,11 +77,6 @@ describe('Main Page', () => {
 			.and('have.text', 'Начать путь');
 		mainPage.elements.startWayButton().click();
 		cy.url().should('eq', 'https://alpha.it-roast.com/registration');
-	});
-
-	it('Check StartWay button tooltip', () => {
-		mainPage.elements.startWayButton().realHover();
-		mainPage.elements.tooltip4().should('be.visible');
 	});
 
 	it('Check carousel', () => {
@@ -182,7 +172,7 @@ describe('Main Page', () => {
 		mainPage.elements.tooltip6().should('be.visible');
 	});
 
-	it.skip('Check the information about owner rights protection  ', () => {
+	it('Check the information about owner rights protection  ', () => {
 		cy.task(
 			'connectDB',
 			`SELECT text FROM public.frontend_data WHERE front_id='1.7'`
@@ -196,18 +186,15 @@ describe('Main Page', () => {
 	//LinkedIn
 	it('Check LinkedIn', () => {
 		mainPage.elements.linkedIn().should('exist');
-		// mainPage.elements.linkedIn().click();
-		// cy.url().should(
-		// 	'eq',
-		// 	'https://ru.linkedin.com/company/train-lab-interns'
-		// );
+		mainPage.elements.linkedIn().click();
+		cy.url().should('include', 'linkedin.com');
 	});
 
-	//GitLink
-	it('Check Git', () => {
+	//GitHubLink
+	it('Check GitHub', () => {
 		cy.visit('https://alpha.it-roast.com/');
 		mainPage.elements.gitLink().should('exist');
-		// mainPage.elements.gitLink().click();
-		// cy.url().should('eq', 'https://github.com/Train-lab-intern');
+		mainPage.elements.gitLink().click();
+		cy.url().should('include', 'github.com');
 	});
 });

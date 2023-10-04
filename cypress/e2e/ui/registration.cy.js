@@ -59,7 +59,7 @@ describe('Registration Page', () => {
 		).should('exist');
 	});
 
-	it('Positive registration', () => {
+	it('Positive registration', { tags: ['@smoke', '@regression'] }, () => {
 		regPage.registration(userEmail, userName, userPassword);
 		cy.wait(3000);
 		regPage.elements
@@ -71,16 +71,20 @@ describe('Registration Page', () => {
 			);
 	});
 
-	it('Re-registtration: user with this email is already exist', () => {
-		regPage.registration(userEmail, userName, userPassword);
-		cy.wait(3000);
-		regPage.elements
-			.notification()
-			.should('be.visible')
-			.and('have.text', 'User with this username is already exists.');
-	});
+	it(
+		'Re-registtration: user with this email is already exist',
+		{ tags: '@regression' },
+		() => {
+			regPage.registration(userEmail, userName, userPassword);
+			cy.wait(3000);
+			regPage.elements
+				.notification()
+				.should('be.visible')
+				.and('have.text', 'User with this username is already exists.');
+		}
+	);
 
-	it('Password does not match', () => {
+	it('Password does not match', { tags: '@regression' }, () => {
 		regPage.elements.emailInput().clear().type('usermail@gmail.com');
 		regPage.elements.loginInput().clear().type('userName');
 		regPage.elements.passw1Input().clear().type('userPassword1');
@@ -111,7 +115,7 @@ describe('Registration Page', () => {
 		);
 	});
 
-	it('Registration with the blank fields', () => {
+	it('Registration with the blank fields', { tags: '@regression' }, () => {
 		regPage.elements.signUpButton().click();
 		regPage.elements
 			.form()
@@ -130,7 +134,7 @@ describe('Registration Page', () => {
 		});
 	});
 
-	it('Registration with wrong email format', () => {
+	it('Registration with wrong email format', { tags: '@regression' }, () => {
 		cy.wrap(regData.invalidEmail).each(($item, index) => {
 			if (index < 1) {
 				regPage.elements.emailInput().clear().type($item);
@@ -159,38 +163,42 @@ describe('Registration Page', () => {
 		});
 	});
 
-	it('Registration with wrong password format', () => {
-		cy.wrap(regData.invalidPassword).each(($item, index) => {
-			if (index < 1) {
-				regPage.elements
-					.emailInput()
-					.clear()
-					.type('usermail@gmail.com');
-				regPage.elements.loginInput().clear().type('userName');
-				regPage.elements.passw1Input().clear().type($item);
-				regPage.elements.passw2Input().clear().type($item);
-				regPage.elements.signUpButton().click();
-				regPage.elements
-					.errorMess()
-					.should(
-						'have.text',
-						'Пароль вводится латинскими буквами,должен состоять минимум из 8 символов,должен содержать как минимум 1 букву, 1 цифру,должен содержать символы верхнего и нижнего регистра.'
-					);
-			} else {
-				cy.get(
-					'.Registration_input_border_red__eTe3J.form-control[type="password"]'
-				)
-					.clear()
-					.type($item);
-				regPage.elements.passw2Input().clear().type($item);
-				regPage.elements.signUpButton().click();
-				regPage.elements
-					.errorMess()
-					.should(
-						'have.text',
-						'Пароль вводится латинскими буквами,должен состоять минимум из 8 символов,должен содержать как минимум 1 букву, 1 цифру,должен содержать символы верхнего и нижнего регистра.'
-					);
-			}
-		});
-	});
+	it(
+		'Registration with wrong password format',
+		{ tags: '@regression' },
+		() => {
+			cy.wrap(regData.invalidPassword).each(($item, index) => {
+				if (index < 1) {
+					regPage.elements
+						.emailInput()
+						.clear()
+						.type('usermail@gmail.com');
+					regPage.elements.loginInput().clear().type('userName');
+					regPage.elements.passw1Input().clear().type($item);
+					regPage.elements.passw2Input().clear().type($item);
+					regPage.elements.signUpButton().click();
+					regPage.elements
+						.errorMess()
+						.should(
+							'have.text',
+							'Пароль вводится латинскими буквами,должен состоять минимум из 8 символов,должен содержать как минимум 1 букву, 1 цифру,должен содержать символы верхнего и нижнего регистра.'
+						);
+				} else {
+					cy.get(
+						'.Registration_input_border_red__eTe3J.form-control[type="password"]'
+					)
+						.clear()
+						.type($item);
+					regPage.elements.passw2Input().clear().type($item);
+					regPage.elements.signUpButton().click();
+					regPage.elements
+						.errorMess()
+						.should(
+							'have.text',
+							'Пароль вводится латинскими буквами,должен состоять минимум из 8 символов,должен содержать как минимум 1 букву, 1 цифру,должен содержать символы верхнего и нижнего регистра.'
+						);
+				}
+			});
+		}
+	);
 });
