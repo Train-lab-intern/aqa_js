@@ -23,7 +23,10 @@ describe('Registration Page', () => {
 	});
 
 	const userName = faker.person.firstName();
-	const userPassword = faker.internet.password({ length: 8, pattern: /\w/ });
+	const userPassword = faker.internet.password({
+		length: 8,
+		pattern: /[A-Za-z0-9_]/,
+	});
 
 	it('Check elements of registration page', () => {
 		regPage.elements

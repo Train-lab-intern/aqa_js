@@ -8,7 +8,10 @@ const userEmail = faker.internet.email({
 	allowSpecialCharacters: false,
 });
 const userName = faker.person.firstName();
-const userPassword = faker.internet.password({ length: 9, pattern: /\w/ });
+const userPassword = faker.internet.password({
+	length: 9,
+	pattern: /[A-Za-z0-9_]/,
+});
 
 describe('Login Page', () => {
 	before('Registration', () => {

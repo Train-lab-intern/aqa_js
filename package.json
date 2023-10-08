@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"cy:open": "npx cypress open",
+		"cy:run": "npx cypress run --reporter cypress-mochawesome-reporter --spec 'cypress/e2e/ui/login.cy.js'",
 		"cy:run:reg:ui": "npx cypress run --browser chrome --config-file cypress.config.js --spec 'cypress/e2e/ui/registration.cy.js'",
 		"cy:run:login:ui": "npx cypress run --browser chrome --config-file cypress.config.js --spec 'cypress/e2e/ui/login.cy.js'",
 		"cy:run:login:api": "npx cypress run --browser chrome --config-file cypress.config.js --spec 'cypress/e2e/api/login.cy.js'",
@@ -33,8 +34,8 @@
 		"@faker-js/faker": "^8.0.2",
 		"@shelex/cypress-allure-plugin": "^2.40.0",
 		"allure-commandline": "^2.24.0",
-		"cypress": "^12.14.0",
-		"cypress-mochawesome-reporter": "^3.5.1",
+		"cypress": "^12.4.0",
+		"cypress-mochawesome-reporter": "^3.2.0",
 		"cypress-real-events": "^1.10.0",
 		"dotenv": "^16.3.1",
 		"fs": "^0.0.1-security",
