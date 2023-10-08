@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = defineConfig({
-	// reporter: 'cypress-mochawesome-reporter',
+	reporter: 'cypress-mochawesome-reporter',
 	watchForFileChanges: false,
 	env: {
 		allureReuseAfterSpec: true,
@@ -28,7 +28,7 @@ module.exports = defineConfig({
 					return result;
 				},
 			});
-			// require('cypress-mochawesome-reporter/plugin')(on);
+			require('cypress-mochawesome-reporter/plugin')(on);
 			require('@cypress/grep/src/plugin')(config);
 			const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 			allureWriter(on, config);
